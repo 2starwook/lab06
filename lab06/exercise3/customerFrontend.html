@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <title>Web Store</title>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="formChecker.js"></script>
+</head>
+<body>
+  <div id="entire_flex">
+    <div class="each-item">
+      <h1 class="item-title">Black Apple</h1>
+      <img src="images/black.svg" width="250" height="250">
+      <div class="item-description">
+        <p class="item-price">US$100</p>
+        <button type="button" class="item-add" id="item1-add" onclick="add_item('item1')">Add to Bag</button>
+      </div>
+    </div>
+    <div class="each-item">
+      <h1 class="item-title">Red Apple</h1>
+      <img src="images/red.jpg" width="250" height="250">
+      <div class="item-description">
+        <p class="item-price">US$2</p>
+        <button type="button" class="item-add" id="item2-add" onclick="add_item('item2')">Add to Bag</button>
+      </div>
+    </div>
+    <div class="each-item">
+      <h1 class="item-title">Green Apple</h1>
+      <img src="images/green.png" width="250" height="250">
+      <div class="item-description">
+        <p class="item-price">US$1</p>
+        <button type="button" class="item-add" id="item3-add" onclick="add_item('item3')">Add to Bag</button>
+      </div>
+    </div>
+    <div class="shopping-cart">
+      <h1 class="shopping-cart_title">Shopping Cart</h1>
+      <div class="shopping-cart_items">
+        <div class="shopping-cart_item">
+          <img src="images/black.svg" width="100" height="100">
+          <p class="shopping-cart_item_count" id="item1-count">0</p>
+        </div>
+        <div class="shopping-cart_item">
+          <img src="images/red.jpg" width="100" height="100">
+          <p class="shopping-cart_item_count" id="item2-count">0</p>
+        </div>
+        <div class="shopping-cart_item">
+          <img src="images/green.png" width="100" height="100">
+          <p class="shopping-cart_item_count" id="item3-count">0</p>
+        </div>
+      </div>
+    </div>
+    <form class="form" action="customerBackend.php" method="post" onsubmit="return verify_submit()">
+      <div class="form_shipping-info">
+        <fieldset>
+          <legend>Select the shipping type</legend>
+          <input type="radio" id="radio1" name="shipping-method" value="1">
+          <label for="radio1">Free 7 day</label>
+          <br>
+          <input type="radio" id="radio2" name="shipping-method" value="2">
+          <label for="radio2">$50.00 over night </label>
+          <br>
+          <input type="radio" id="radio3" name="shipping-method" value="3">
+          <label for="radio3">$5.00 three day </label>
+        </fieldset>
+      </div>
+      <div class="form_user-info">
+        <fieldset>
+          <legend>User Information</legend>
+          <label for="username">Username:</label>
+          <input type="email" id="email" name="username" pattern="^\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$" size="30" required>
+          <label for="pass">Password (8 characters minimum):</label>
+          <input type="password" id="pass" name="password" minlength="8" required>
+        </fieldset>
+      </div>
+      <div class="form_button">
+        <input type="button" value="reset" onclick="reset_cart()">
+        <input type="submit" value="submit">
+      </div>
+      <div class="form_count" style="display: none;">
+        <input type="text" id="form-item1_count" name="item1-count" value="">
+        <input type="text" id="form-item2_count" name="item2-count" value="">
+        <input type="text" id="form-item3_count" name="item3-count" value="">
+      </div>
+    </form>
+  </div>
+  <div>
+
+  </div>
+</body>
+</html>
